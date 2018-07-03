@@ -4259,7 +4259,7 @@ class TestRevisionsUnscheduleForUnpublishedPages(TestCase, WagtailTestUtils):
         self.unpublished_revision.save()
 
         self.user = self.login()
-    
+
     def test_unschedule_view(self):
         """
         This tests that the unschedule view responds with a confirm page

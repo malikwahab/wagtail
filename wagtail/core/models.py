@@ -1856,6 +1856,12 @@ class PagePermissionTester:
     def can_view_revisions(self):
         return not self.page_is_root
 
+    def can_unschedule(self):
+        if not self.user.is_active:
+            return False
+
+        return self.user.is_superuser or ('publish' in self.permissions)
+
 
 class BaseViewRestriction(models.Model):
     NONE = 'none'

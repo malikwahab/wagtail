@@ -47,6 +47,10 @@ class TestPagePermission(TestCase):
         self.assertFalse(christmas_page_perms.can_unpublish())
         self.assertFalse(unpub_perms.can_unpublish())
 
+        self.assertFalse(homepage_perms.can_unschedule())
+        self.assertFalse(christmas_page_perms.can_unschedule())
+        self.assertFalse(unpub_perms.can_unschedule())
+
         self.assertFalse(homepage_perms.can_publish_subpage())
         self.assertFalse(christmas_page_perms.can_publish_subpage())
         self.assertFalse(unpub_perms.can_publish_subpage())
@@ -105,6 +109,10 @@ class TestPagePermission(TestCase):
         self.assertFalse(homepage_perms.can_unpublish())
         self.assertTrue(christmas_page_perms.can_unpublish())
         self.assertFalse(unpub_perms.can_unpublish())  # cannot unpublish a page that isn't published
+
+        self.assertFalse(homepage_perms.can_unschedule())
+        self.assertTrue(christmas_page_perms.can_unschedule())
+        self.assertTrue(unpub_perms.can_unschedule())
 
         self.assertFalse(homepage_perms.can_publish_subpage())
         self.assertTrue(christmas_page_perms.can_publish_subpage())
@@ -169,6 +177,10 @@ class TestPagePermission(TestCase):
         self.assertFalse(homepage_perms.can_unpublish())
         self.assertTrue(christmas_page_perms.can_unpublish())
         self.assertFalse(unpub_perms.can_unpublish())  # cannot unpublish a page that isn't published
+
+        self.assertFalse(homepage_perms.can_unschedule())
+        self.assertTrue(christmas_page_perms.can_unschedule())
+        self.assertTrue(unpub_perms.can_unschedule())
 
         self.assertFalse(homepage_perms.can_publish_subpage())
         self.assertTrue(christmas_page_perms.can_publish_subpage())
@@ -244,6 +256,7 @@ class TestPagePermission(TestCase):
         self.assertFalse(unpub_perms.can_delete())
         self.assertFalse(unpub_perms.can_publish())
         self.assertFalse(christmas_page_perms.can_unpublish())
+        self.assertFalse(christmas_page_perms.can_unschedule())
         self.assertFalse(unpub_perms.can_publish_subpage())
         self.assertFalse(unpub_perms.can_reorder_children())
         self.assertFalse(unpub_perms.can_move())
@@ -276,6 +289,10 @@ class TestPagePermission(TestCase):
         self.assertTrue(homepage_perms.can_unpublish())
         self.assertFalse(root_perms.can_unpublish())
         self.assertFalse(unpub_perms.can_unpublish())
+
+        self.assertTrue(homepage_perms.can_unschedule())
+        self.assertTrue(root_perms.can_unschedule())
+        self.assertTrue(unpub_perms.can_unschedule())
 
         self.assertTrue(homepage_perms.can_publish_subpage())
         self.assertTrue(root_perms.can_publish_subpage())
